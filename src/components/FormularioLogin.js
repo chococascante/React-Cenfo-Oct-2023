@@ -50,6 +50,8 @@ export function FormularioLogin() {
         id="password"
         name="password"
       />
+
+      <button>Iniciar sesión</button>
     </form>
   );
 }
