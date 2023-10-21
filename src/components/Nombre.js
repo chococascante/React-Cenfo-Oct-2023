@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 function Nombre(props) {
   return (
@@ -8,10 +7,5 @@ function Nombre(props) {
     </p>
   );
 }
-
-Nombre.propTypes = {
-  nombre: PropTypes.string.isRequired,
-  apellido: PropTypes.string.isRequired,
-};
 
 export default Nombre;
