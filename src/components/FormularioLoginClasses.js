@@ -12,35 +12,19 @@ export class FormularioLoginClasses extends Component {
   }
 
   handleEmailChange(event) {
-    this.setState(
-      {
-        email: event.target.value,
-      }
-      // function () {
-      //   console.log("Email", this.state.email);
-      // }
-    );
+    this.setState({
+      email: event.target.value,
+    });
   }
 
   handlePasswordChange(event) {
-    this.setState(
-      {
-        password: event.target.value,
-      }
-      // function () {
-      //   console.log("Password", this.state.password);
-      // }
-    );
+    this.setState({
+      password: event.target.value,
+    });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.email !== this.state.email) {
-      console.log("Email", this.state.email);
-    }
-
-    if (prevState.password !== this.state.password) {
-      console.log("Password", this.state.password);
-    }
+  handleButtonClick() {
+    console.log("Hola");
   }
 
   render() {
@@ -64,7 +48,9 @@ export class FormularioLoginClasses extends Component {
           name="password"
         />
 
-        <button>Iniciar sesión</button>
+        <button onClick={this.handleButtonClick.bind(this)} type="button">
+          Iniciar sesión
+        </button>
       </form>
     );
   }
