@@ -24,7 +24,12 @@ export class FormularioLoginClasses extends Component {
   }
 
   handleButtonClick() {
-    console.log("Hola");
+    const datos = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    console.log(datos);
   }
 
   render() {

@@ -13,7 +13,12 @@ export function FormularioLogin() {
   };
 
   function handleButtonClick() {
-    console.log("Hola");
+    const datos = {
+      email: email,
+      password: password,
+    };
+
+    console.log(datos);
   }
 
   return (
@@ -36,7 +41,9 @@ export function FormularioLogin() {
         name="password"
       />
 
-      <button onClick={handleButtonClick}>Iniciar sesión</button>
+      <button onClick={handleButtonClick} type="button">
+        Iniciar sesión
+      </button>
     </form>
   );
 }
