@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { ListaCorreos } from "./ListaCorreos";
 
 export function FormularioLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [listaCorreos, setListaCorreos] = useState([]);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -18,32 +20,44 @@ export function FormularioLogin() {
       password: password,
     };
 
-    console.log(datos);
+    const nuevaListaCorreos = listaCorreos;
+    nuevaListaCorreos.push(datos);
+
+    setListaCorreos(nuevaListaCorreos);
+
+    // Limpiar inputs
+    setEmail("");
+    setPassword("");
   }
 
   return (
-    <form>
-      <h1>Inicio de sesión</h1>
+    <div>
+      <form>
+        <h1>Inicio de sesión</h1>
 
-      <label htmlFor="email">Correo electrónico</label>
-      <input
-        onChange={handleEmailChange}
-        type="email"
-        id="email"
-        name="email"
-      />
+        <label htmlFor="email">Correo electrónico</label>
+        <input
+          onChange={handleEmailChange}
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+        />
 
-      <label htmlFor="password">Contraseña</label>
-      <input
-        onChange={handlePasswordChange}
-        type="password"
-        id="password"
-        name="password"
-      />
+        <label htmlFor="password">Contraseña</label>
+        <input
+          onChange={handlePasswordChange}
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+        />
 
-      <button onClick={handleButtonClick} type="button">
-        Iniciar sesión
-      </button>
-    </form>
+        <button onClick={handleButtonClick} type="button">
+          Iniciar sesión
+        </button>
+      </form>
+      <ListaCorreos listaCorreos={listaCorreos} />
+    </div>
   );
 }
