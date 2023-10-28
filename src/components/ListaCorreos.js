@@ -1,28 +1,16 @@
 import React from "react";
+import { ElementoLista } from "./ElementoLista";
 
 export const ListaCorreos = ({ listaCorreos, eliminarElementoLista }) => {
-  // asdasda
-
-  function handleDeleteClick(email) {
-    eliminarElementoLista(email);
-  }
-
   return (
     <ul>
-      {listaCorreos.map(function (correo) {
+      {listaCorreos.map(function (dato) {
         return (
-          <li key={correo.email}>
-            <p>{correo.email}</p>
-            <p>{correo.password}</p>
-            <button
-              type="button"
-              onClick={() => {
-                handleDeleteClick(correo.email);
-              }}
-            >
-              Eliminar
-            </button>
-          </li>
+          <ElementoLista
+            key={dato.email}
+            dato={dato}
+            eliminarElementoLista={eliminarElementoLista}
+          />
         );
       })}
     </ul>
