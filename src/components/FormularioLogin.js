@@ -30,6 +30,14 @@ export function FormularioLogin() {
     setPassword("");
   }
 
+  function eliminarElementoLista(email) {
+    const nuevaListaCorreos = listaCorreos.filter(function (dato) {
+      return dato.email !== email;
+    });
+
+    setListaCorreos(nuevaListaCorreos);
+  }
+
   return (
     <div>
       <form>
@@ -57,7 +65,10 @@ export function FormularioLogin() {
           Iniciar sesión
         </button>
       </form>
-      <ListaCorreos listaCorreos={listaCorreos} />
+      <ListaCorreos
+        listaCorreos={listaCorreos}
+        eliminarElementoLista={eliminarElementoLista}
+      />
     </div>
   );
 }
